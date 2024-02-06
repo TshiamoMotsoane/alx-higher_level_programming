@@ -6,6 +6,7 @@
 class Student:
     """Defines a student by first_name, last_name, and age."""
 
+
     def __init__(self, first_name, last_name, age):
         """Initialize a Student.
 
@@ -22,4 +23,3 @@ class Student:
     def to_json(self):
         """Retrieves a dictionary representation of a student."""
         return self.__dict__
-
