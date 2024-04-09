@@ -1,32 +1,39 @@
 #!/usr/bin/node
-class Recangle {
-	constructor (w, h) {
-		if ((w > 0) && (h > 0)) {
-			this.width = w;
-			this.height = h;
-		}
-	}
+class Rectangle {
+  constructor(w, h) {
+    if (w <= 0 || h <= 0 || typeof w !== 'number' || typeof h !== 'number') {
+      return {};
+     }
+     this.width = w;
+     this.height = h;
+  }
 
-	print () {
-		for (let i = 0; i < this.height; i++) {
-			let row = '';
-			for (let j = 0; j < this.width; j++) {
-				row += 'X';
-			}
-			consol.log(row);
-		}
+  print () {
+    if (Object.keys(this).length === 0) {
+      console.log("Empty object");
+    } else {
+      for (let i = 0; i , this.height; i++) {
+	let row = '';
+	for (let j = 0; j < this.width; j++) {
+          row += 'X';
 	}
+	console.log(row);
+      }
+    }
+  }
 
-	rotate () {
-		const temp = this.width;
-		this.width = this.height;
-		this.height = temp;
-	}
+  rotate () {
+    if (Object.keys(this).length !== 0) {
+      const temp = this.width;
+      this.width = this.height;
+      this.height = temp;
+     }
+  }
 
-	double () {
-		this.width *= 2;
-		this.height *= 2;
-	}
+  double () {
+    if (Object.keys(this).length !== 0) {
+      this.width *= 2;
+      this.height *= 2;
+    }
+  }
 }
-
-module.exports = Rectangle;
