@@ -1,23 +1,13 @@
 #!/usr/bin/node
 
 const fs = require('fs');
+// Import the required 'fs' to handle file system operations.
 
-// Check if the correct number of arguments is provided
-if (process.argv.length < 4) {
-    console.error('Usage: ./script.js <file_path> <string_to_write>');
-    process.exit(1); // Exit the script with a failure code.
-}
+fs.writeFile(process.argv[2], process.argv[3], 'utf8', error => {
+  // Write the file specified as the third command-line argument.
 
-//Extract the file path and the string to write from the command line arguments
-const filePath = process.argv[2];
-const stringToWrite = process.argv[3];
-
-// Write the string to the specified file in the UTF-8 encoding
-fs.writeFile(filePath, stringToWrite, 'utf8', function (err) {
-    // If an eror occurs, log it to the console
-    if (err) {
-	console.error('Error writing to the file:', err);
-    } else {
-	console.log('File written successfully');
+  if (error) {
+    // If an error occurs, the 'error' parameter will contain an error object.
+    console.error(error);
     }
 });
