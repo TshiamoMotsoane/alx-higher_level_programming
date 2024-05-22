@@ -6,7 +6,7 @@ const fs = require('fs');
 // Read the file specified by the first command-line argument.
 fs.readFile(process.argv[2], 'utf8', function (err, data) {
 
-  //If an error occurs, log it to the console.
+  // If an error occurs, log it to the console.
   if (err) {
     console.error('Error reading the file:', err);
   } else {
